@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventura | Premium Ticket Booking</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <i class="fa-solid fa-ticket"></i> Eventura
+        </div>
+        <ul class="nav-links">
+            <li><a href="#" class="active">Home</a></li>
+            <li><a href="#events">Events</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+        <div class="nav-buttons" id="authButtons">
+            <button class="btn-outline" id="loginBtn">Log In</button>
+            <button class="btn-primary" id="signupBtn">Sign Up</button>
+        </div>
+        <div class="user-profile hidden" id="userProfile">
+            <span class="user-greeting">Welcome, <span id="usernameDisplay">User</span></span>
+            <button class="btn-outline btn-sm" id="logoutBtn">Log Out</button>
+        </div>
+        <div class="mobile-menu">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Experience the <span>Extraordinary</span></h1>
+            <p class="hero-subtitle">Discover and book tickets to the most exclusive concerts, conferences, and sports
+                events happening around the world.</p>
+
+            <div class="search-bar">
+                <div class="search-input">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" placeholder="Search for events, artists, or venues...">
+                </div>
+                <div class="search-input">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <input type="text" placeholder="Location">
+                </div>
+                <button class="btn-search">Search Events</button>
+            </div>
+        </div>
+        <div class="hero-background">
+            <div class="glow-orb orb-1"></div>
+            <div class="glow-orb orb-2"></div>
+        </div>
+    </header>
+
+    <section id="events" class="featured-events">
+        <div class="section-header">
+            <h2>Trending Events</h2>
+            <a href="#" class="view-all">View All Events <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+
+        <div class="event-grid" id="eventGrid">
+            <!-- Events will be injected here by JavaScript -->
+        </div>
+    </section>
+
+    <!-- Modal for Authentication -->
+    <div class="modal" id="authModal">
+        <div class="modal-content auth-modal-content">
+            <span class="close-modal auth-close">&times;</span>
+            <div class="auth-tabs">
+                <button class="auth-tab active" id="tabLogin">Log In</button>
+                <button class="auth-tab" id="tabSignup">Sign Up</button>
+            </div>
+            <div class="modal-body">
+                <form id="authForm">
+                    <div class="input-group">
+                        <label for="authUsername">Username</label>
+                        <input type="text" id="authUsername" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="authPassword">Password</label>
+                        <input type="password" id="authPassword" required>
+                    </div>
+                    <div id="authError" class="auth-error hidden"></div>
+                    <button type="submit" class="btn-primary w-100" id="authSubmitBtn">Log In</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Booking -->
+    <div class="modal" id="bookingModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2 id="modalEventTitle">Book Tickets</h2>
+            <div class="modal-body">
+                <div class="ticket-selection">
+                    <label for="ticketType">Ticket Type</label>
+                    <select id="ticketType">
+                        <option value="standard">Standard - $99</option>
+                        <option value="vip">VIP - $199</option>
+                    </select>
+                </div>
+                <div class="ticket-selection">
+                    <label for="ticketQuantity">Quantity</label>
+                    <input type="number" id="ticketQuantity" value="1" min="1" max="10">
+                </div>
+                <div class="total-price">
+                    Total: $<span id="totalAmount">99</span>
+                </div>
+                <button class="btn-primary w-100" id="confirmBooking">Confirm Booking</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div class="logo">
+                    <i class="fa-solid fa-ticket"></i> Eventura
+                </div>
+                <p>Your gateway to unforgettable experiences.</p>
+            </div>
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <a href="#">Home</a>
+                <a href="#">Events</a>
+                <a href="#">Pricing</a>
+            </div>
+            <div class="footer-links">
+                <h3>Legal</h3>
+                <a href="#">Terms of Service</a>
+                <a href="#">Privacy Policy</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Eventura. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
