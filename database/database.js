@@ -9,16 +9,13 @@ const db = new sqlite3.Database(dbPath, (err) => {
     } else {
         console.log('Connected to the SQLite database.');
         
-        // Initialize Tables
         db.serialize(() => {
-            // Users Table
             db.run(`CREATE TABLE IF NOT EXISTS users (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
                 username TEXT UNIQUE,
                 password TEXT
             )`);
 
-            // Events Table
             db.run(`CREATE TABLE IF NOT EXISTS events (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
                 title TEXT,
@@ -29,7 +26,6 @@ const db = new sqlite3.Database(dbPath, (err) => {
                 image TEXT
             )`);
 
-            // Bookings Table
             db.run(`CREATE TABLE IF NOT EXISTS bookings (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
                 eventId INTEGER,
@@ -40,7 +36,6 @@ const db = new sqlite3.Database(dbPath, (err) => {
                 FOREIGN KEY (eventId) REFERENCES events(id)
             )`);
 
-            // Seed Events
             db.get("SELECT COUNT(*) AS count FROM events", (err, row) => {
                 if (row.count === 0) {
                     const insert = 'INSERT INTO events (title, category, date, location, price, image) VALUES (?, ?, ?, ?, ?, ?)';
