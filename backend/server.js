@@ -6,16 +6,12 @@ const db = require('../database/database');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Middleware
 app.use(cors());
 app.use(express.json());
 
-// Serve static files from the frontend directory
 app.use(express.static(path.join(__dirname, '../frontend')));
 
-// API Endpoints
 
-// Authentication
 app.post('/api/signup', (req, res) => {
     const { username, password } = req.body;
     if (!username || !password) return res.status(400).json({ error: 'Username and password are required' });
@@ -44,7 +40,6 @@ app.post('/api/login', (req, res) => {
     });
 });
 
-// Get all events
 app.get('/api/events', (req, res) => {
     db.all("SELECT * FROM events", [], (err, rows) => {
         if (err) {
@@ -58,7 +53,6 @@ app.get('/api/events', (req, res) => {
     });
 });
 
-// Create a new booking
 app.post('/api/bookings', (req, res) => {
     const { eventId, ticketType, quantity, totalAmount } = req.body;
     
@@ -79,9 +73,6 @@ app.post('/api/bookings', (req, res) => {
     });
 });
 
-// Fallback handled by express.static for the root route.
-
-// Start Server
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
 });
