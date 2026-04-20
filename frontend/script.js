@@ -2,7 +2,7 @@ let events = [];
 
 const eventGrid = document.getElementById('eventGrid');
 const bookingModal = document.getElementById('bookingModal');
-const closeModal = document.querySelector('.close-modal'); // generic, maybe conflict
+const closeModal = document.querySelector('.close-modal');
 const ticketType = document.getElementById('ticketType');
 const ticketQuantity = document.getElementById('ticketQuantity');
 const totalAmount = document.getElementById('totalAmount');
@@ -64,7 +64,6 @@ async function fetchEvents() {
     }
 }
 
-// Render Events
 function renderEvents() {
     eventGrid.innerHTML = '';
     
@@ -90,14 +89,12 @@ function renderEvents() {
     });
 }
 
-// Open Modal
 window.openModal = function(eventId) {
     currentEvent = events.find(e => e.id === eventId);
     if (!currentEvent) return;
 
     modalEventTitle.textContent = `Book: ${currentEvent.title}`;
     
-    // Update pricing options based on event base price
     ticketType.innerHTML = `
         <option value="standard" data-price="${currentEvent.price}">Standard - $${currentEvent.price}</option>
         <option value="vip" data-price="${Math.round(currentEvent.price * 2.5)}">VIP - $${Math.round(currentEvent.price * 2.5)}</option>
@@ -109,7 +106,6 @@ window.openModal = function(eventId) {
     bookingModal.classList.add('active');
 }
 
-// Update Total Price
 function updateTotal() {
     if (!currentEvent) return;
     const selectedOption = ticketType.options[ticketType.selectedIndex];
@@ -119,16 +115,13 @@ function updateTotal() {
     totalAmount.textContent = (price * quantity).toFixed(2);
 }
 
-// Setup Event Listeners
 function setupEventListeners() {
-    // Close booking modal
     if (closeModal) {
         closeModal.addEventListener('click', () => {
             bookingModal.classList.remove('active');
         });
     }
 
-    // Auth Modal Listeners
     if (loginBtn) loginBtn.addEventListener('click', () => openAuthModal(true));
     if (signupBtn) signupBtn.addEventListener('click', () => openAuthModal(false));
     if (authClose) authClose.addEventListener('click', () => authModal.classList.remove('active'));
@@ -192,12 +185,11 @@ function setupEventListeners() {
             
             if (response.ok) {
                 btn.textContent = 'Booking Confirmed!';
-                btn.style.background = '#10b981'; // Green color for success
+                btn.style.background = '#10b981';
                 
                 setTimeout(() => {
                     bookingModal.classList.remove('active');
                     
-                    // Reset button
                     setTimeout(() => {
                         btn.textContent = originalText;
                         btn.style.background = '';
@@ -277,5 +269,4 @@ async function handleAuthSubmit(e) {
     authSubmitBtn.textContent = isLoginMode ? 'Log In' : 'Sign Up';
 }
 
-// Run init when DOM is loaded
 document.addEventListener('DOMContentLoaded', init);
