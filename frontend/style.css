@@ -24,7 +24,6 @@ body {
     overflow-x: hidden;
 }
 
-/* Navbar */
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -78,7 +77,6 @@ body {
     cursor: pointer;
 }
 
-/* Buttons */
 button {
     font-family: var(--font-main);
     cursor: pointer;
@@ -116,7 +114,6 @@ button {
     font-size: 1.1rem;
 }
 
-/* Hero Section */
 .hero {
     min-height: 100vh;
     display: flex;
@@ -152,7 +149,6 @@ button {
     margin-bottom: 3rem;
 }
 
-/* Background effects */
 .hero-background {
     position: absolute;
     top: 0;
@@ -186,7 +182,6 @@ button {
     right: -100px;
 }
 
-/* Search Bar */
 .search-bar {
     display: flex;
     background: var(--card-bg);
@@ -235,7 +230,6 @@ button {
     font-size: 1rem;
 }
 
-/* Featured Events */
 .featured-events {
     padding: 5rem 5%;
 }
@@ -335,7 +329,6 @@ button {
     font-weight: 700;
 }
 
-/* Modal */
 .modal {
     display: none;
     position: fixed;
@@ -432,7 +425,6 @@ button {
     color: var(--accent-primary);
 }
 
-/* Footer */
 footer {
     background: rgba(10, 10, 12, 0.8);
     border-top: 1px solid var(--border-color);
@@ -481,7 +473,6 @@ footer {
     font-size: 0.9rem;
 }
 
-/* Utility & Profile */
 .hidden {
     display: none !important;
 }
@@ -506,7 +497,6 @@ footer {
     font-size: 0.9rem;
 }
 
-/* Auth Modal Styles */
 .auth-tabs {
     display: flex;
     margin-bottom: 2rem;
@@ -572,7 +562,6 @@ footer {
     border: 1px solid rgba(239, 68, 68, 0.2);
 }
 
-/* Responsive */
 @media (max-width: 768px) {
     .nav-links, .nav-buttons {
         display: none;
