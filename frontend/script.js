@@ -1,6 +1,5 @@
 let events = [];
 
-// Elements
 const eventGrid = document.getElementById('eventGrid');
 const bookingModal = document.getElementById('bookingModal');
 const closeModal = document.querySelector('.close-modal'); // generic, maybe conflict
@@ -10,7 +9,6 @@ const totalAmount = document.getElementById('totalAmount');
 const modalEventTitle = document.getElementById('modalEventTitle');
 const confirmBookingBtn = document.getElementById('confirmBooking');
 
-// Auth Elements
 const authButtons = document.getElementById('authButtons');
 const userProfile = document.getElementById('userProfile');
 const usernameDisplay = document.getElementById('usernameDisplay');
@@ -45,7 +43,6 @@ function checkAuth() {
     }
 }
 
-// Initialize App
 function init() {
     checkAuth();
     fetchEvents();
